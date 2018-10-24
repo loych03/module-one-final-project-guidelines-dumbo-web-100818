@@ -1,0 +1,20 @@
+-Enter car to retrieve car stats
+-Enter location and give dealer location nearby
+
+-Find out if car is available for purchase
+
+
+
+-Save and retrieve list of cars
+
+-Filter out car's based on buyer's budget
+
+
+buyer:  budget
+car: model, price, year, buyer_id, dealer_id
+dealer: location
+
+
+TO MAKE A TABLE :
+ puts Car.all.select{|s| s.name == "Mercedes"}.map{|g| g.model}
+end
