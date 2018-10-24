@@ -1,55 +1,60 @@
-#
-# def location
-#   location_hash = {"Manhattan" => "BMW Manhattan",
-#     "Paramus" => "Mercedes Benz of Paramus",
-#     "Brooklyn" =>"Audi of Brooklyn"}
-#     loop do
-#       puts "Hello potential car buyer! From which location would you like to buy a car? 1.Manhattan 2. Paramus 3. Brooklyn"
-#       answer = gets.chomp.downcase.capitalize
-#       if location_hash[answer] != nil
-#       case answer
-#       when "Manhattan", "Paramus", "Brooklyn"
-#         puts "OK, this is the name of the dealership: #{location_hash[answer]}"
-#         break
-#     end
-#     else
-#       puts "Sorry that location does not exist"
-#       end
-#     end
-#   end
+
+def location(buyer)
+  location_hash = {"Manhattan" => "BMW Manhattan",
+    "Paramus" => "Mercedes Benz of Paramus",
+    "Brooklyn" =>"Audi of Brooklyn"}
+  loop do
+    puts "Hello #{buyer.name}! From which location would you like to buy a car? 1.Manhattan 2. Paramus 3. Brooklyn"
+    answer = gets.chomp.downcase.capitalize
+      if location_hash[answer] != nil
+      case answer
+      when "Manhattan", "Paramus", "Brooklyn"
+        puts "OK, this is the name of the dealership: #{location_hash[answer]}"
+        break
+      end
+    else
+    puts "Sorry that location does not exist"
+    end
+  end
+end
 #
 #
 def budget
+  loop do
+    puts "Please insert your budget."
+    answer = gets.chomp.to_f
+    budget_price = Car.all.select{|car| car.price < answer && car.status == "Available"}
 
-      loop do
-        puts "Please insert your budget."
-        answer = gets.chomp.to_f
-        budget_price = Car.all.select{|car| car.price < answer && car.status == "Available"}
-
-              if budget_price.length > 0
-
-              puts "This is a list of the cars within your budget."
-              car_list = budget_price.each_with_index{ |car, index| puts "#{index+1}. #{car.name} #{car.model} #{car.price}"}
-
-
-              index_num = "#{index}"
-              break
-            end
-
-            puts "Sorry, there are no cars within your budget."
-          end
-        end
-
- def favorite_save
-   favorite_array = []
-   puts "Enter a number to include in your favorite car list"
-   user_input = gets.chomp.to_i
-
-   if user_input == budget.index_num
-     favorite_array << user_input
-     favorite_array
+    if budget_price.length > 0
+      puts "This is a list of the cars within your budget."
+      car_list = budget_price.each_with_index{ |car, index| puts "#{index+1}. #{car.name} #{car.model} #{car.price}"}
+      # enter input and associate to the car in the list
+      # call buy_car(ttake)
+      break
+    end
+    puts "Sorry, there are no cars within your budget."
+  end
 end
-end
+
+
+
+
+
+# favorite(car,)
+# Favorite.new(car: car, user: buyer)
+
+# def favorite_save
+#   favorite_array = []
+#   puts "Enter a number to include in your favorite car list"
+#   user_input = gets.chomp.to_i
+
+
+
+   # if user_input == budget.index_num
+   #   favorite_array << user_input
+   #   favorite_array
+   # end
+# end
 
 #  def find
 #    favorite_save.find_by(favorite_save.user_input)
