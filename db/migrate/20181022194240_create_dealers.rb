@@ -1,7 +1,8 @@
-class CreateDealers < ActiveRecord::Migration[5.0]
+  class CreateDealers < ActiveRecord::Migration[5.0]
   def change
       create_table :dealers do |t|
       t.string :name
+      t.string :brand
       t.string :location
     end
   end

@@ -19,7 +19,7 @@ gem 'sqlite3'
 gem 'thin'
 gem 'shotgun'
 gem 'pry'
-
+gem 'tty-prompt'
 group :test do
   gem 'rspec'
   gem 'capybara'
